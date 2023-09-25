@@ -12,16 +12,24 @@
         .fixed-width-btn {
             width: 100px;
         }
+        #spinImage {
+            transition: transform 2s ease-in-out;
+        }
     </style>
     <script>
         $(document).ready(function() {
+            let delay = 900000;  // 15 minutes
             let angle = 0;
-            setInterval(function() {
+            function rotateImage() {
                 angle += 270;
-                $("#spinImage").css("transform", "rotate(" + angle + "deg)");
-            }, 2000);
+                $("#spinImage").css({
+                    "transform": "rotate(" + angle + "deg)"
+                });
+                setTimeout(rotateImage, delay);
+            }
+            setTimeout(rotateImage, delay);
         });
-    </script>    
+    </script>
 </head>
 <body class="bg-light p-4">
     <div class="container">
