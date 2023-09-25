@@ -1,1 +1,2 @@
 # maxiTraining
+Semniraio sobre Git
