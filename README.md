@@ -1,2 +1,3 @@
 # maxiTraining
 Semniraio sobre Git
+Cambios en el Branch develop
