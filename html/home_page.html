@@ -18,16 +18,16 @@
     </style>
     <script>
         $(document).ready(function() {
-            let delay = 900000;  // 15 minutes
+            let pret = 900000;
             let angle = 0;
             function rotateImage() {
                 angle += 270;
                 $("#spinImage").css({
                     "transform": "rotate(" + angle + "deg)"
                 });
-                setTimeout(rotateImage, delay);
+                setTimeout(rotateImage, pret);
             }
-            setTimeout(rotateImage, delay);
+            setTimeout(rotateImage, pret);
         });
     </script>
 </head>
