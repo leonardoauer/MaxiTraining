@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Información Personal</title>
+</head>
+<body>
+    <h1>Ingrese su Información Personal</h1>
+
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion"><br><br>
+
+        <label for="edad">Edad:</label>
+        <select id="edad" name="edad">
+            <option value="15">15 años</option>
+            <option value="16">16 años</option>
+            <option value="17">17 años</option>
+            <option value="18">18 años</option>
+            <option value="19">19 años</option>
+            <option value="20">20 años</option>
+        </select><br><br>
+
+        <button type="button" onclick="cancelar()">Cancelar</button>
+        <button type="button" onclick="guardar()">Guardar</button>
+    </form>
+
+    <script>
+        function cancelar() {
+            // Agrega aquí la lógica para cancelar
+            alert("Formulario cancelado");
+        }
+
+        function guardar() {
+            // Agrega aquí la lógica para guardar la información
+            var nombre = document.getElementById("nombre").value;
+            var direccion = document.getElementById("direccion").value;
+            var edad = document.getElementById("edad").value;
+
+            alert("Información guardada:\nNombre: " + nombre + "\nDirección: " + direccion + "\nEdad: " + edad + " años");
+        }
+    </script>
+</body>
+</html>
