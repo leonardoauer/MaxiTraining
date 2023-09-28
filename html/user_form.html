@@ -79,25 +79,23 @@
                 <button id="btn_save" type="submit" class="btn btn-success fixed-width-btn">Save</button>                
             </div>
 
-            <div class="mb-3">
-                <input type="text" class="form-control" id="datos" name="datos">
-            </div>
         </form>
     </div>
 </body>
 
 <script type="text/javascript">
-	var usersArray = new Array();
-    var i=0;
-
 	$(document).ready(function(){
-		$("#btn_save").click(function(){
-            usersArray[i]=[$('#nombre').val(), $('#direccion').val(), $('#edad').val()];
-
-            $('#datos').val() = $('#direccion').val(); //usersArray[i].val();
-
-            i=i+1;
-		});
+        var selectEdad = $("#edad");
+        
+		$("#btn_cancel").click(function(){
+                window.location.href = "home_page.html";
+            });
+    
+        // Agrega las opciones de edad desde 18 hasta 30 años
+        for (var i = 18; i <= 30; i++) {
+            var option = $("<option>").attr("value", i).text(i + " años");
+            selectEdad.append(option);
+        }
 	});
 	
 </script>
