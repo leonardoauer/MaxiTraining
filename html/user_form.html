@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,25 +78,43 @@
                 <button id="btn_save" type="submit" class="btn btn-success fixed-width-btn">Save</button>                
             </div>
 
-            <div class="mb-3">
-                <input type="text" class="form-control" id="datos" name="datos">
-            </div>
         </form>
     </div>
 </body>
 
 <script type="text/javascript">
-	var usersArray = new Array();
-    var i=0;
-
 	$(document).ready(function(){
-		$("#btn_save").click(function(){
-            usersArray[i]=[$('#nombre').val(), $('#direccion').val(), $('#edad').val()];
+        var selectEdad = $("#edad");
+        
+		$("#btn_cancel").click(function(){
+                window.location.href = "home_page.html";
+        });
+    
+        // Agrega las opciones de edad desde 18 hasta 30 años
+        for (var i = 18; i <= 30; i++) {
+            var option = $("<option>").attr("value", i).text(i + " años");
+            selectEdad.append(option);
+        }
 
-            $('#datos').val() = $('#direccion').val(); //usersArray[i].val();
+        // Selecciona el checkbox "Select All"
+        $("#selectAllPets").change(function() {
+            // Si está marcado, selecciona todos los checkboxes de mascotas
+            if ($(this).prop("checked")) {
+                $("input[name='mascotas']").prop("checked", true);
+            } else {
+                // Si no está marcado, desmarca todos los checkboxes de mascotas
+                $("input[name='mascotas']").prop("checked", false);
+            }
+        });
 
-            i=i+1;
-		});
+        // Controla el comportamiento de los checkboxes de mascotas
+        $("input[name='mascotas']").change(function() {
+            // Verifica si todos los checkboxes de mascotas están marcados
+            var allChecked = $("input[name='mascotas']:checked").length === $("input[name='mascotas']").length;
+            // Marca o desmarca el checkbox "Select All" en consecuencia
+            $("#selectAllPets").prop("checked", allChecked);
+        });
+
 	});
 	
 </script>
