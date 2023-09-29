@@ -17,8 +17,8 @@
         .cln-btn {
             border: 1px solid #ccc;
         }
-
     </style>
+    
 </head>
 <body class="bg-light p-4">
     <div class="container">
@@ -45,11 +45,59 @@
                 </select>
             </div>
 
-            <div class="mt-3">
-                <button type="button" class="btn btn-light fixed-width-btn cln-btn">Cancel</button>
-                <button type="submit" class="btn btn-success fixed-width-btn">Save</button>                
+            <hr>
+
+            <div class="mb-3">
+                <label class="form-label"><strong>Tienes mascotas? Cuales?</strong></label>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"><input type="checkbox" id="selectAllPets" value="all"> Select All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="mascotas" value="perros"> Perros</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="mascotas" value="gatos"> Gatos</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="mascotas" value="tortugas"> Tortugas</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="mascotas" value="timbus"> Timbús</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <hr>            
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-light fixed-width-btn cln-btn" onclick="window.location.href='home_page.html'">Cancel</button>
+                <button id="btn_save" type="submit" class="btn btn-success fixed-width-btn">Save</button>                
+            </div>
+
         </form>
     </div>
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+        var selectEdad = $("#edad");
+        
+		$("#btn_cancel").click(function(){
+                window.location.href = "home_page.html";
+            });
+    
+        // Agrega las opciones de edad desde 18 hasta 30 años
+        for (var i = 18; i <= 30; i++) {
+            var option = $("<option>").attr("value", i).text(i + " años");
+            selectEdad.append(option);
+        }
+	});
+	
+</script>
+
 </html>
